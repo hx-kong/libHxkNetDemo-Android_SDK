@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">hxMcuFrame</string>
+    <string name="title_activity_seach_lan_dev_demo">SearchLanDevDemo</string>
+    <string name="title_activity_msudpdemo">MSUDPDemo</string>
+</resources>
