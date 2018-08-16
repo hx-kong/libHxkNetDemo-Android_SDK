@@ -22,7 +22,10 @@ public class McuWebDeviceDemo extends AppCompatActivity {
         mwd=new McuWebDevice();
         mwd.addListener(weblisterner);
         mwd.getDevices("ab1122");
-      //  mwd.deleteDevice("ab1122","30AEA44B0F1130AEA44B0F10");
+        //  mwd.deleteDevice("ab1122","30AEA44B0F1130AEA44B0F10");
+        //mwd.getOnlineDevicesByCAID("ab1122");
+        //mwd.getOnlineDevicesByUUID("994C29-1AFE34994C29");
+
     }
 
     McuWebDevListener weblisterner= new McuWebDevListener() {
@@ -37,12 +40,32 @@ public class McuWebDeviceDemo extends AppCompatActivity {
         }
 
         @Override
-        public void getDevListFail() {
+        public void deviceOnlineByCAID(List<String> lstUUID) {
+            Log.v("McuWebDeviceDemo","deviceOnlineByCAID lstUUID count="+lstUUID.size());
+        }
+
+        @Override
+        public void deviceOnlineByUUID(List<String> lstUUID) {
+            Log.v("McuWebDeviceDemo","deviceOnlineByUUID lstUUID count="+lstUUID.size());
+        }
+
+        @Override
+        public void getDevListFail(String errMsg) {
 
         }
 
         @Override
-        public void removeDeviceFail() {
+        public void removeDeviceFail(String errMsg) {
+
+        }
+
+        @Override
+        public void getDevOnlineByCAIDFail(String errMsg) {
+
+        }
+
+        @Override
+        public void getDevOnlineByUUIDFail(String errMsg) {
 
         }
     };
